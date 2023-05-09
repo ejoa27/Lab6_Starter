@@ -45,6 +45,7 @@ function addRecipesToDocument(recipes) {
     let recipeCard = document.createElement('recipe-card');
     recipeCard.data = recipes[i];
     mainElem.appendChild(recipeCard);
+  }
 }
 
 /**
