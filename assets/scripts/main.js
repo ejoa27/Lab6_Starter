@@ -24,7 +24,7 @@ function getRecipesFromStorage() {
   // A9. TODO - Complete the functionality as described in this function
   //           header. It is possible in only a single line, but should
   //           be no more than a few lines.
-  return (localStorage.getItem('recipes') === null || localStorage.getItem('recipes').length == 0) ? [] : JSON.parse(localStorage.getItem('recipes'));
+  return (localStorage.getItem('recipes') == null) ? [] : JSON.parse(localStorage.getItem('recipes'));
 }
 
 /**
@@ -92,7 +92,7 @@ function initFormHandler() {
     mainElem.appendChild(newRecipeCard);
     // B9. TODO - Get the recipes array from localStorage, add this new recipe to it, and
     //            then save the recipes array back to localStorage
-    let newRecipes = (localStorage.getItem('recipes') === null || localStorage.getItem('recipes').length == 0) ? [] : JSON.parse(localStorage.getItem('recipes'));
+    let newRecipes = getRecipesFromStorage();
     newRecipes.push(recipeObject);
     localStorage.setItem('recipes', JSON.stringify(newRecipes));
   });
@@ -103,7 +103,7 @@ function initFormHandler() {
   clearBtn.addEventListener('click', e=>{
     // Steps B12 & B13 will occur inside the event listener from step B11
     // B12. TODO - Clear the local storage
-    localStorage.setItem('recipes', []);
+    localStorage.clear();
     // B13. TODO - Delete the contents of <main>
     let mainElem = document.querySelector('main');
     mainElem.textContent = '';
