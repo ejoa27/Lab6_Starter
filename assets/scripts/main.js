@@ -26,7 +26,7 @@ function getRecipesFromStorage() {
   //           be no more than a few lines.
   if (localStorage.getItem('recipes') == null) {
     return [];
-  else {
+  } else {
     return JSON.parse(localStorage.getItem('recipes'));
   }
 }
